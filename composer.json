@@ -1,0 +1,23 @@
+{
+    "name": "shoaibali/silverstripe-shop-lite",
+    "description": "Adds simple shop components to a SilverStripe site",
+    "type": "silverstripe-module",
+    "keywords": ["silverstripe", "module", "shop", "ecommerce"],
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Shoaib Ali",
+            "email": "hacker.nz@gmail.com"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": ">=3.2",
+        "silverstripe/cms": ">=3.2"
+    },
+    "require-dev": {
+        "phpunit/PHPUnit": "~3.7@stable"
+    },
+    "extra" : {
+        "installer-name": "shop-lite"
+    }
+}
