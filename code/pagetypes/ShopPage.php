@@ -36,12 +36,12 @@ class ShopPage_Controller extends Page_Controller
         $URLSegment = Convert::raw2sql($this->request->allParams()); // just paranoid hence the convert
         $product = Products::get()
             ->filter(array('URLSegment' => $URLSegment['ID']));
-
+        $total = $this->total();
         if ($product) {
             return $this->customise(array(
                         'Product' => $product->First(),
-                        'CartTotal' => $this->total()["total"],
-                        'ProductShippingCost' => $this->total()["shippingtotal"]
+                        'CartTotal' => $total["total"],
+                        'ProductShippingCost' => $total["shippingtotal"]
                     ))->renderWith(array("ProductPage", "Page"));
         }
 
