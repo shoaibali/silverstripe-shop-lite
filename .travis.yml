@@ -1,19 +1,33 @@
 # See https://github.com/silverstripe-labs/silverstripe-travis-support for setup details
 
 language: php
-php:
- - 5.3
-
 sudo: false
 
+php:
+  - 5.3
+
 env:
- - DB=MYSQL CORE_RELEASE=master
- - DB=PGSQL CORE_RELEASE=master
+  - DB=MYSQL CORE_RELEASE=3.2
 
 matrix:
   include:
     - php: 5.4
-      env: DB=MYSQL CORE_RELEASE=master
+      env: DB=MYSQL CORE_RELEASE=3.1
+    - php: 5.5
+      env: DB=SQLITE CORE_RELEASE=3.2
+    - php: 5.6
+      env: DB=PGSQL CORE_RELEASE=3.2 COVERAGE=1
+    - php: 5.6
+      env: DB=PGSQL CORE_RELEASE=3.2 COVERAGE=2
+    - php: 5.6
+      env: DB=PGSQL CORE_RELEASE=3.2 COVERAGE=3
+    - php: 5.6
+      env: DB=PGSQL CORE_RELEASE=3.3
+    - php: 5.6
+      env: DB=PGSQL CORE_RELEASE=master
+  allow_failures:
+    - env: DB=PGSQL CORE_RELEASE=master
+
 
 before_script:
  - composer self-update
