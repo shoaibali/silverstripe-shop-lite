@@ -124,7 +124,8 @@ class ShopPage_Controller extends Page_Controller
      */
     public function CartItemsCount()
     {
-        return (!empty(Session::get("shoppingcart")))? count(explode(",", Session::get("shoppingcart"))) : 0;
+        $shoppingcart = Session::get("shoppingcart");
+        return (!empty($shoppingcart))? count(explode(",", $shoppingcart)) : 0;
     }
 
     /**
