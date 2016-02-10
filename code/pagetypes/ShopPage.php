@@ -58,8 +58,10 @@ class ShopPage_Controller extends Page_Controller
     public function index(SS_HTTPRequest $request)
     {
 
+        $transaction = Session::get("transaction");
+
         // clear old session data
-        if (!empty(Session::get("transaction"))) {
+        if (!empty($transaction)) {
             Session::clear("transaction");
             Session::clear("order");
         }
