@@ -135,6 +135,12 @@ class Products extends DataObject
     }
 
     /**
+     * @var array
+     */
+    protected static $_cached_get_by_url = array();
+
+
+    /**
      * @param $str
      * @return Product|Boolean
      */

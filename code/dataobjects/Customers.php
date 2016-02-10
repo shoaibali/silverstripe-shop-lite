@@ -10,7 +10,6 @@ class Customers extends DataObject
 {
 
     /**
-     *
      * @var array
      */
     private static $db = array(
@@ -44,14 +43,28 @@ class Customers extends DataObject
         'Email',
     );
 
+    /**
+     *  Converts the country code from NZ to "New Zealand"
+     *
+     * @return String
+     */
     public function CountryName()
     {
         return (string) Zend_Locale::getTranslation($this->Country, "Country", i18n::get_locale());
     }
 
+
+    /**
+     * Sends an email receipt to customer
+     *
+     * @param  CustomerOrder $order
+     * @return bool
+     * @todo  Make subject configurable
+     * @todo  Make tempalte more generic
+     */
     public function emailCustomer($order)
     {
-        $subject = 'Thank you for order on '. date('Y-m-d'.'!') . ' from SUNZ website';
+        $subject = 'Thank you for order on '. date('Y-m-d'.'!') . ' from website';
         $from = SS_SEND_EMAIL_FROM;
         $to = $this->Email;
 
