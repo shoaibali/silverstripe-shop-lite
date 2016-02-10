@@ -140,12 +140,13 @@ class ShopPage_Controller extends Page_Controller
 
         // is it a valid product it?
         $product = Products::get_by_id("Products", $productID);
+        $shoppingcart = Session::get("shoppingcart");
 
         if ($product) {
-            if (empty(Session::get("shoppingcart"))) {
+            if (empty($shoppingcart)) {
                 $currentItems = explode(",", $productID);
             } else {
-                $currentItems = explode(",", Session::get("shoppingcart") . "," . $productID);
+                $currentItems = explode(",", $shoppingcart . "," . $productID);
             }
 
             Session::set("shoppingcart", implode(",", $currentItems));
