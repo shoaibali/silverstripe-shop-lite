@@ -10,5 +10,5 @@ build:
     before:
       - wget https://gist.githubusercontent.com/shoaibali/da42301538a4fe098653/raw/0209590124c917a3dd69d9b1a52bf5c83cf670f0/_ss_environment.php
 
-	filter:
+filter:
   paths: [code/*, tests/*]
